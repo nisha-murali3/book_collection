@@ -1,0 +1,37 @@
+<!-- Have links for each action -- adding a book, and editing deleting, viewing -->
+
+<h1>Book Collection</h1>
+
+<% flash.each do |type, message| %>
+  <p><%= message %></p>
+<% end %>
+
+<h2>Add a Book</h2>
+<%= link_to "+ Add a new book", new_book_path %>
+
+<h2>All Books</h2>
+
+<% if @books.any? %>
+  <table border="1" cellpadding="8">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @books.each do |book| %>
+        <tr>
+          <td><%= book.title %></td>
+          <td>
+            <%= link_to "View Details", book_path(book) %> |
+            <%= link_to "Edit", edit_book_path(book) %> |
+            <%= link_to "Delete", confirm_delete_book_path(book) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No books yet. Add one above to get started.</p>
+<% end %>
