@@ -1,0 +1,9 @@
+<!-- Show details page, book's author, price, and published date -->
+
+<!-- And link back to home -->
+<h1><%= @book.title %></h1>
+<p><strong>Author:</strong> <%= @book.author %></p>
+<p><strong>Price:</strong> $<%= @book.price %></p>
+<p><strong>Published Date:</strong> <%= @book.published_date %></p>
+<%= link_to "Back to Home", root_path %>
+
