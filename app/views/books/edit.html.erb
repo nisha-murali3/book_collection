@@ -8,6 +8,18 @@
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
+  <div>
+    <%= form.label :author %>
+    <%= form.text_field :author %>
+  </div>
+  <div>
+    <%= form.label :price %>
+    <%= form.number_field :price%>
+  </div>
+  <div>
+    <%= form.label :published_date %>
+    <%= form.date_select :published_date %>
+  </div>
   <%= form.submit "Update Book" %>
 <% end %>
 

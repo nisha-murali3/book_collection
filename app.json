@@ -1,0 +1,14 @@
+{
+  "name": "book-collection",
+  "scripts": {},
+  "env": {
+    "RAILS_MASTER_KEY": {
+      "description": "Rails master key for decrypting credentials",
+      "required": false
+    }
+  },
+  "addons": ["heroku-postgresql:essential-0"],
+  "buildpacks": [
+    { "url": "heroku/ruby" }
+  ]
+}
