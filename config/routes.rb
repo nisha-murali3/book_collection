@@ -7,5 +7,9 @@ Rails.application.routes.draw do
       delete :delete
     end
   end
-  root "books#index"
+  #Standard CRUD route for users, user_books, and the root points to User Books
+  resources :users
+  resources :user_books
+
+  root "user_books#index"
 end
