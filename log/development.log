@@ -674,3 +674,1499 @@ Migrating to AddAuthorPriceAndPublishedDateToBooks (20260912183831)
   [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT /*application='Csce431'*/[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8695479046735164075) /*application='Csce431'*/[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Csce431'*/[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8695479046735164075) /*application='Csce431'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (6.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Csce431'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (4.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Csce431'*/[0m
+Migrating to CreateUsers (20260912211543)
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN /*application='Csce431'*/[0m
+  [1m[35m (126.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='Csce431'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (45.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260912211543') RETURNING "version" /*application='Csce431'*/[0m
+  [1m[36mTRANSACTION (16.2ms)[0m  [1m[35mCOMMIT /*application='Csce431'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(8695479046735164075) /*application='Csce431'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Csce431'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8695479046735164075) /*application='Csce431'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Csce431'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Csce431'*/[0m
+Migrating to CreateUserBooks (20260912211904)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Csce431'*/[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "user_books" ("id" bigserial primary key, "user_id" integer, "book_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='Csce431'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260912211904') RETURNING "version" /*application='Csce431'*/[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT /*application='Csce431'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8695479046735164075) /*application='Csce431'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Csce431'*/[0m
+Started GET "/" for 172.17.0.1 at 2026-09-13 06:30:51 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (4.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Csce431'*/[0m
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (40.1ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  Rendered user_books/index.html.erb within layouts/application (Duration: 50.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 177.2ms | GC: 0.0ms)
+Completed 200 OK in 1386ms (Views: 187.8ms | ActiveRecord: 45.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for 172.17.0.1 at 2026-09-13 06:31:04 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#index as HTML
+Started GET "/user_books/new" for 172.17.0.1 at 2026-09-13 06:31:04 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='Csce431',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:10
+  Rendered users/index.html.erb within layouts/application (Duration: 41.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 46.5ms | GC: 0.0ms)
+Completed 200 OK in 708ms (Views: 50.0ms | ActiveRecord: 1.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/new.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."username" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:28:in 'Enumerable#map'
+  [1m[36mBook Load (2.6ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."title" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:33:in 'Enumerable#map'
+  Rendered user_books/_form.html.erb (Duration: 181.8ms | GC: 0.0ms)
+  Rendered user_books/new.html.erb within layouts/application (Duration: 200.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 206.4ms | GC: 0.0ms)
+Completed 200 OK in 947ms (Views: 201.0ms | ActiveRecord: 40.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user_books" for 172.17.0.1 at 2026-09-13 06:31:09 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (0.3ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  Rendered user_books/index.html.erb within layouts/application (Duration: 9.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | GC: 0.0ms)
+Completed 200 OK in 713ms (Views: 12.7ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for 172.17.0.1 at 2026-09-13 06:31:12 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='Csce431',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:10
+  Rendered users/index.html.erb within layouts/application (Duration: 11.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | GC: 0.0ms)
+Completed 200 OK in 794ms (Views: 19.2ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/new" for 172.17.0.1 at 2026-09-13 06:31:14 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 13.1ms | GC: 0.0ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 36.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 39.2ms | GC: 0.0ms)
+Completed 200 OK in 769ms (Views: 41.5ms | ActiveRecord: 1.8ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users" for 172.17.0.1 at 2026-09-13 06:31:25 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"username" => "hello"}, "commit" => "Create User"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN /*action='create',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:27:in 'block in UsersController#create'
+  [1m[36mUser Create (14.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ('hello', '2026-09-13 06:31:26.326448', '2026-09-13 06:31:26.326448') RETURNING "id" /*action='create',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:27:in 'block in UsersController#create'
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT /*action='create',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:27:in 'block in UsersController#create'
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 906ms (ActiveRecord: 19.3ms (1 query, 0 cached) | GC: 18.7ms)
+
+
+Started GET "/users/1" for 172.17.0.1 at 2026-09-13 06:31:27 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:63:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 2.8ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 46.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 51.2ms | GC: 0.0ms)
+Completed 200 OK in 845ms (Views: 55.1ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/users" for 172.17.0.1 at 2026-09-13 06:31:33 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+Started GET "/users/1/edit" for 172.17.0.1 at 2026-09-13 06:31:33 +0000
+  Rendering users/index.html.erb within layouts/application
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='Csce431',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:10
+  Rendered users/_user.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered users/index.html.erb within layouts/application (Duration: 12.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | GC: 0.0ms)
+Completed 200 OK in 540ms (Views: 18.0ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Processing by UsersController#edit as HTML
+  Parameters: {"id" => "1"}
+Started GET "/users" for 172.17.0.1 at 2026-09-13 06:31:34 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='edit',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:63:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 12.1ms | GC: 0.0ms)
+  Rendered users/edit.html.erb within layouts/application (Duration: 19.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 26.0ms | GC: 0.0ms)
+Completed 200 OK in 714ms (Views: 27.4ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.9ms)
+
+
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='Csce431',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:10
+  Rendered users/_user.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered users/index.html.erb within layouts/application (Duration: 7.8ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | GC: 0.5ms)
+Completed 200 OK in 808ms (Views: 11.6ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/user_books" for 172.17.0.1 at 2026-09-13 06:31:38 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (0.4ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  Rendered user_books/index.html.erb within layouts/application (Duration: 11.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | GC: 0.0ms)
+Completed 200 OK in 804ms (Views: 14.7ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user_books" for 172.17.0.1 at 2026-09-13 06:31:42 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (0.4ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  Rendered user_books/index.html.erb within layouts/application (Duration: 6.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | GC: 0.0ms)
+Completed 200 OK in 757ms (Views: 8.9ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/books" for 172.17.0.1 at 2026-09-13 06:31:43 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "books" LIMIT 1 /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:19
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:31
+  Rendered books/index.html.erb within layouts/application (Duration: 17.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 23.6ms | GC: 0.0ms)
+Completed 200 OK in 826ms (Views: 27.2ms | ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/users" for 172.17.0.1 at 2026-09-13 06:31:52 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='Csce431',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:10
+  Rendered users/_user.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered users/index.html.erb within layouts/application (Duration: 12.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | GC: 0.0ms)
+Completed 200 OK in 750ms (Views: 16.4ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/1" for 172.17.0.1 at 2026-09-13 06:31:56 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:63:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 8.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | GC: 0.0ms)
+Completed 200 OK in 724ms (Views: 14.5ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/1" for 172.17.0.1 at 2026-09-13 06:32:10 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:63:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 3.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | GC: 0.0ms)
+Completed 200 OK in 732ms (Views: 8.3ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/user_books" for 172.17.0.1 at 2026-09-13 06:32:11 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (0.4ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  Rendered user_books/index.html.erb within layouts/application (Duration: 5.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | GC: 0.0ms)
+Completed 200 OK in 519ms (Views: 8.6ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/books" for 172.17.0.1 at 2026-09-13 06:32:12 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "books" LIMIT 1 /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:19
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:31
+  Rendered books/index.html.erb within layouts/application (Duration: 14.5ms | GC: 2.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | GC: 2.7ms)
+Completed 200 OK in 800ms (Views: 20.1ms | ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 4.6ms)
+
+
+Started GET "/users" for 172.17.0.1 at 2026-09-13 06:32:14 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Started GET "/books" for 172.17.0.1 at 2026-09-13 06:32:14 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#index as HTML
+Processing by BooksController#index as HTML
+Started GET "/user_books" for 172.17.0.1 at 2026-09-13 06:32:14 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='Csce431',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:10
+  Rendered users/_user.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered users/index.html.erb within layouts/application (Duration: 9.6ms | GC: 1.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | GC: 1.8ms)
+Completed 200 OK in 630ms (Views: 13.4ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 6.2ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "books" LIMIT 1 /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:19
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:31
+  Rendered books/index.html.erb within layouts/application (Duration: 13.2ms | GC: 1.8ms)
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | GC: 1.8ms)
+Completed 200 OK in 627ms (Views: 19.4ms | ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 8.3ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (0.3ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  Rendered user_books/index.html.erb within layouts/application (Duration: 6.2ms | GC: 1.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | GC: 1.6ms)
+Completed 200 OK in 669ms (Views: 11.0ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 8.9ms)
+
+
+Started GET "/books" for 172.17.0.1 at 2026-09-13 06:32:15 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by BooksController#index as HTML
+Started GET "/books/new" for 172.17.0.1 at 2026-09-13 06:32:16 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by BooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "books" LIMIT 1 /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:19
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT "books".* FROM "books" /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:31
+  Rendered books/index.html.erb within layouts/application (Duration: 9.4ms | GC: 2.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | GC: 2.3ms)
+Completed 200 OK in 699ms (Views: 12.1ms | ActiveRecord: 1.5ms (2 queries, 0 cached) | GC: 3.7ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/new.html.erb within layouts/application (Duration: 36.9ms | GC: 4.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 45.7ms | GC: 5.3ms)
+Completed 200 OK in 788ms (Views: 47.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 8.4ms)
+
+
+Started GET "/user_books" for 172.17.0.1 at 2026-09-13 06:32:18 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (0.3ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  Rendered user_books/index.html.erb within layouts/application (Duration: 5.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | GC: 0.0ms)
+Completed 200 OK in 732ms (Views: 9.1ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/books" for 172.17.0.1 at 2026-09-13 06:32:20 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by BooksController#index as HTML
+Started GET "/user_books/new" for 172.17.0.1 at 2026-09-13 06:32:20 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "books" LIMIT 1 /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:19
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:31
+  Rendered books/index.html.erb within layouts/application (Duration: 8.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | GC: 0.0ms)
+Completed 200 OK in 586ms (Views: 11.5ms | ActiveRecord: 0.7ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/new.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."username" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:28:in 'Enumerable#map'
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."title" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:33:in 'Enumerable#map'
+  Rendered user_books/_form.html.erb (Duration: 16.4ms | GC: 0.0ms)
+  Rendered user_books/new.html.erb within layouts/application (Duration: 20.2ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.1ms | GC: 0.5ms)
+Completed 200 OK in 728ms (Views: 25.9ms | ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/user_books" for 172.17.0.1 at 2026-09-13 06:32:32 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (0.4ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  Rendered user_books/index.html.erb within layouts/application (Duration: 9.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | GC: 0.0ms)
+Completed 200 OK in 809ms (Views: 14.0ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/user_books" for 172.17.0.1 at 2026-09-13 06:33:19 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user_book" => {"user_id" => "1", "book_id" => "3"}, "commit" => "Create User book"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*action='create',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:27:in 'block in UserBooksController#create'
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='create',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:27:in 'block in UserBooksController#create'
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3 LIMIT 1 /*action='create',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:27:in 'block in UserBooksController#create'
+  [1m[36mUserBook Create (2.4ms)[0m  [1m[32mINSERT INTO "user_books" ("user_id", "book_id", "created_at", "updated_at") VALUES (1, 3, '2026-09-13 06:33:20.431213', '2026-09-13 06:33:20.431213') RETURNING "id" /*action='create',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:27:in 'block in UserBooksController#create'
+  [1m[36mTRANSACTION (12.7ms)[0m  [1m[35mCOMMIT /*action='create',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:27:in 'block in UserBooksController#create'
+Redirected to http://localhost:3000/user_books/1
+Completed 302 Found in 1016ms (ActiveRecord: 19.7ms (3 queries, 0 cached) | GC: 1.0ms)
+
+
+Started GET "/user_books/1" for 172.17.0.1 at 2026-09-13 06:33:21 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#show as TURBO_STREAM
+  Parameters: {"id" => "1"}
+  [1m[36mUserBook Load (0.4ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" WHERE "user_books"."id" = 1 LIMIT 1 /*action='show',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:63:in 'UserBooksController#set_user_book'
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/show.html.erb within layouts/application
+  Rendered user_books/_user_book.html.erb (Duration: 6.1ms | GC: 0.0ms)
+  Rendered user_books/show.html.erb within layouts/application (Duration: 33.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 35.7ms | GC: 0.0ms)
+Completed 200 OK in 863ms (Views: 50.1ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/user_books" for 172.17.0.1 at 2026-09-13 06:33:25 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (0.5ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:28
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3 LIMIT 1 /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:30
+  Rendered user_books/index.html.erb within layouts/application (Duration: 25.8ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 28.1ms | GC: 0.3ms)
+Completed 200 OK in 833ms (Views: 29.2ms | ActiveRecord: 1.4ms (3 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/user_books/1" for 172.17.0.1 at 2026-09-13 06:33:28 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mUserBook Load (0.5ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" WHERE "user_books"."id" = 1 LIMIT 1 /*action='show',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:63:in 'UserBooksController#set_user_book'
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/show.html.erb within layouts/application
+  Rendered user_books/_user_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered user_books/show.html.erb within layouts/application (Duration: 2.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 24.9ms | GC: 0.2ms)
+Completed 200 OK in 754ms (Views: 30.3ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/user_books/1" for 172.17.0.1 at 2026-09-13 06:33:30 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mUserBook Load (0.5ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" WHERE "user_books"."id" = 1 LIMIT 1 /*action='show',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:63:in 'UserBooksController#set_user_book'
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/show.html.erb within layouts/application
+  Rendered user_books/_user_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered user_books/show.html.erb within layouts/application (Duration: 3.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | GC: 0.0ms)
+Completed 200 OK in 830ms (Views: 8.6ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 1.0ms)
+
+
+Started GET "/user_books" for 172.17.0.1 at 2026-09-13 06:37:10 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (1.0ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:28
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3 LIMIT 1 /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:30
+  Rendered user_books/index.html.erb within layouts/application (Duration: 133.8ms | GC: 18.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 172.0ms | GC: 19.0ms)
+Completed 200 OK in 957ms (Views: 184.4ms | ActiveRecord: 9.1ms (3 queries, 0 cached) | GC: 19.0ms)
+
+
+Started GET "/" for 172.17.0.1 at 2026-09-13 06:37:17 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (0.3ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:28
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3 LIMIT 1 /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:30
+  Rendered user_books/index.html.erb within layouts/application (Duration: 20.4ms | GC: 0.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 23.9ms | GC: 0.6ms)
+Completed 200 OK in 800ms (Views: 26.9ms | ActiveRecord: 1.2ms (3 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/user_books/1/edit" for 172.17.0.1 at 2026-09-13 06:37:20 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Started GET "/user_books/1" for 172.17.0.1 at 2026-09-13 06:37:20 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#edit as HTML
+  Parameters: {"id" => "1"}
+Processing by UserBooksController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mUserBook Load (0.5ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" WHERE "user_books"."id" = 1 LIMIT 1 /*action='edit',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:63:in 'UserBooksController#set_user_book'
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/edit.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."username" ASC /*action='edit',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:28:in 'Enumerable#map'
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."title" ASC /*action='edit',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:33:in 'Enumerable#map'
+  Rendered user_books/_form.html.erb (Duration: 35.2ms | GC: 0.7ms)
+  Rendered user_books/edit.html.erb within layouts/application (Duration: 49.0ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 51.8ms | GC: 0.7ms)
+Completed 200 OK in 619ms (Views: 52.2ms | ActiveRecord: 1.5ms (3 queries, 0 cached) | GC: 1.4ms)
+
+
+  [1m[36mUserBook Load (0.4ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" WHERE "user_books"."id" = 1 LIMIT 1 /*action='show',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:63:in 'UserBooksController#set_user_book'
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/show.html.erb within layouts/application
+  Rendered user_books/_user_book.html.erb (Duration: 3.8ms | GC: 0.0ms)
+  Rendered user_books/show.html.erb within layouts/application (Duration: 20.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 22.4ms | GC: 0.0ms)
+Completed 200 OK in 621ms (Views: 23.4ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/users" for 172.17.0.1 at 2026-09-13 06:37:23 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='Csce431',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:20
+  Rendered users/index.html.erb within layouts/application (Duration: 13.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | GC: 0.0ms)
+Completed 200 OK in 874ms (Views: 28.9ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for 172.17.0.1 at 2026-09-13 06:37:26 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='Csce431',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:20
+  Rendered users/index.html.erb within layouts/application (Duration: 6.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | GC: 0.0ms)
+Completed 200 OK in 805ms (Views: 9.6ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/1/edit" for 172.17.0.1 at 2026-09-13 06:37:30 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='edit',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:63:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 14.7ms | GC: 0.0ms)
+  Rendered users/edit.html.erb within layouts/application (Duration: 36.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 38.6ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 769ms (ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method 'user_book' for an instance of #<Class:0x00007b02ac1eb5e8>)
+Caused by: NameError (undefined local variable or method 'user_book' for an instance of #<Class:0x00007b02ac1eb5e8>)
+
+Information for: ActionView::Template::Error (undefined local variable or method 'user_book' for an instance of #<Class:0x00007b02ac1eb5e8>):
+    1: <%= form_with(model: user_book) do |form| %>
+    2:   <% if user_book.errors.any? %>
+    3:     <div style="color: red">
+    4:       <h2><%= pluralize(user_book.errors.count, "error") %> prohibited this user_book from being saved:</h2>
+  
+app/views/users/_form.html.erb:1
+app/views/users/edit.html.erb:5
+
+Information for cause: NameError (undefined local variable or method 'user_book' for an instance of #<Class:0x00007b02ac1eb5e8>):
+  
+app/views/users/_form.html.erb:1
+app/views/users/edit.html.erb:5
+Started GET "/users" for 172.17.0.1 at 2026-09-13 06:37:42 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Started GET "/favicon.ico" for 172.17.0.1 at 2026-09-13 06:37:42 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#index as HTML
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='Csce431',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:20
+  Rendered users/index.html.erb within layouts/application (Duration: 9.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | GC: 0.0ms)
+Completed 200 OK in 906ms (Views: 16.9ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 6.0ms)
+
+
+Started GET "/users/1" for 172.17.0.1 at 2026-09-13 06:37:44 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:63:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 3.8ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 22.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.8ms | GC: 0.0ms)
+Completed 200 OK in 766ms (Views: 27.1ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for 172.17.0.1 at 2026-09-13 06:37:48 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='Csce431',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:20
+  Rendered users/index.html.erb within layouts/application (Duration: 5.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | GC: 0.0ms)
+Completed 200 OK in 459ms (Views: 8.2ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started DELETE "/users/1" for 172.17.0.1 at 2026-09-13 06:37:49 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "id" => "1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='destroy',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:63:in 'UsersController#set_user'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*action='destroy',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:52:in 'UsersController#destroy'
+  [1m[36mUser Destroy (5.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = 1 /*action='destroy',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:52:in 'UsersController#destroy'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*action='destroy',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:52:in 'UsersController#destroy'
+Redirected to http://localhost:3000/users
+Completed 303 See Other in 720ms (ActiveRecord: 8.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for 172.17.0.1 at 2026-09-13 06:37:51 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='Csce431',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:20
+  Rendered users/index.html.erb within layouts/application (Duration: 5.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | GC: 0.0ms)
+Completed 200 OK in 794ms (Views: 8.3ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/books" for 172.17.0.1 at 2026-09-13 06:37:54 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by BooksController#index as HTML
+Started GET "/users/new" for 172.17.0.1 at 2026-09-13 06:37:54 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "books" LIMIT 1 /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:19
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books" /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:31
+  Rendered books/index.html.erb within layouts/application (Duration: 16.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | GC: 0.0ms)
+Completed 200 OK in 534ms (Views: 25.4ms | ActiveRecord: 1.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user_books" for 172.17.0.1 at 2026-09-13 06:37:54 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 7.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 685ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method 'user_book' for an instance of #<Class:0x00007b02ac1eb5e8>)
+Caused by: NameError (undefined local variable or method 'user_book' for an instance of #<Class:0x00007b02ac1eb5e8>)
+
+Information for: ActionView::Template::Error (undefined local variable or method 'user_book' for an instance of #<Class:0x00007b02ac1eb5e8>):
+    1: <%= form_with(model: user_book) do |form| %>
+    2:   <% if user_book.errors.any? %>
+    3:     <div style="color: red">
+    4:       <h2><%= pluralize(user_book.errors.count, "error") %> prohibited this user_book from being saved:</h2>
+  
+app/views/users/_form.html.erb:1
+app/views/users/new.html.erb:5
+
+Information for cause: NameError (undefined local variable or method 'user_book' for an instance of #<Class:0x00007b02ac1eb5e8>):
+  
+app/views/users/_form.html.erb:1
+app/views/users/new.html.erb:5
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (0.5ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:28
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3 LIMIT 1 /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:30
+  Rendered user_books/index.html.erb within layouts/application (Duration: 17.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.7ms | GC: 0.0ms)
+Completed 200 OK in 1146ms (Views: 19.5ms | ActiveRecord: 1.1ms (3 queries, 0 cached) | GC: 70.8ms)
+
+
+Started GET "/books" for 172.17.0.1 at 2026-09-13 06:37:58 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "books" LIMIT 1 /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:19
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:31
+  Rendered books/index.html.erb within layouts/application (Duration: 8.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | GC: 0.0ms)
+Completed 200 OK in 795ms (Views: 11.7ms | ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/books/3" for 172.17.0.1 at 2026-09-13 06:38:06 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by BooksController#show as HTML
+  Parameters: {"id" => "3"}
+Started GET "/books/3/edit" for 172.17.0.1 at 2026-09-13 06:38:07 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by BooksController#edit as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3 LIMIT 1 /*action='show',application='Csce431',controller='books'*/[0m
+  ↳ app/controllers/books_controller.rb:55:in 'BooksController#set_book'
+  Rendering layout layouts/application.html.erb
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (Duration: 6.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | GC: 0.0ms)
+Completed 200 OK in 691ms (Views: 12.3ms | ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3 LIMIT 1 /*action='edit',application='Csce431',controller='books'*/[0m
+  ↳ app/controllers/books_controller.rb:55:in 'BooksController#set_book'
+  Rendering layout layouts/application.html.erb
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (Duration: 8.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | GC: 0.0ms)
+Completed 200 OK in 689ms (Views: 10.4ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/books/3" for 172.17.0.1 at 2026-09-13 06:38:14 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by BooksController#update as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "book" => {"title" => "Book 2", "author" => "author", "price" => "2", "published_date(1i)" => "2026", "published_date(2i)" => "9", "published_date(3i)" => "13"}, "commit" => "Update Book", "id" => "3"}
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3 LIMIT 1 /*action='update',application='Csce431',controller='books'*/[0m
+  ↳ app/controllers/books_controller.rb:55:in 'BooksController#set_book'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*action='update',application='Csce431',controller='books'*/[0m
+  ↳ app/controllers/books_controller.rb:36:in 'BooksController#update'
+  [1m[36mBook Update (6.4ms)[0m  [1m[33mUPDATE "books" SET "updated_at" = '2026-09-13 06:38:15.532687', "author" = 'author', "price" = 2.0, "published_date" = '2026-09-13' WHERE "books"."id" = 3 /*action='update',application='Csce431',controller='books'*/[0m
+  ↳ app/controllers/books_controller.rb:36:in 'BooksController#update'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT /*action='update',application='Csce431',controller='books'*/[0m
+  ↳ app/controllers/books_controller.rb:36:in 'BooksController#update'
+Redirected to http://localhost:3000/
+Completed 302 Found in 895ms (ActiveRecord: 8.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 172.17.0.1 at 2026-09-13 06:38:16 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (0.3ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:28
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3 LIMIT 1 /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:30
+  Rendered user_books/index.html.erb within layouts/application (Duration: 16.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | GC: 0.0ms)
+Completed 200 OK in 740ms (Views: 17.9ms | ActiveRecord: 0.9ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user_books/1" for 172.17.0.1 at 2026-09-13 06:38:19 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mUserBook Load (0.6ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" WHERE "user_books"."id" = 1 LIMIT 1 /*action='show',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:63:in 'UserBooksController#set_user_book'
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/show.html.erb within layouts/application
+  Rendered user_books/_user_book.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered user_books/show.html.erb within layouts/application (Duration: 3.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | GC: 0.0ms)
+Completed 200 OK in 719ms (Views: 7.6ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user_books/1/edit" for 172.17.0.1 at 2026-09-13 06:38:22 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#edit as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mUserBook Load (0.4ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" WHERE "user_books"."id" = 1 LIMIT 1 /*action='edit',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:63:in 'UserBooksController#set_user_book'
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/edit.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."username" ASC /*action='edit',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:28:in 'Enumerable#map'
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."title" ASC /*action='edit',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:33:in 'Enumerable#map'
+  Rendered user_books/_form.html.erb (Duration: 22.0ms | GC: 2.2ms)
+  Rendered user_books/edit.html.erb within layouts/application (Duration: 25.5ms | GC: 2.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 28.2ms | GC: 2.2ms)
+Completed 200 OK in 625ms (Views: 28.1ms | ActiveRecord: 1.3ms (3 queries, 0 cached) | GC: 2.2ms)
+
+
+Started GET "/user_books/1/edit" for 172.17.0.1 at 2026-09-13 06:38:24 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#edit as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mUserBook Load (1.1ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" WHERE "user_books"."id" = 1 LIMIT 1 /*action='edit',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:63:in 'UserBooksController#set_user_book'
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/edit.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."username" ASC /*action='edit',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:28:in 'Enumerable#map'
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."title" ASC /*action='edit',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:33:in 'Enumerable#map'
+  Rendered user_books/_form.html.erb (Duration: 19.0ms | GC: 0.4ms)
+  Rendered user_books/edit.html.erb within layouts/application (Duration: 21.8ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 26.5ms | GC: 0.4ms)
+Completed 200 OK in 637ms (Views: 26.4ms | ActiveRecord: 2.1ms (3 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/user_books" for 172.17.0.1 at 2026-09-13 06:38:25 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (0.3ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:28
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3 LIMIT 1 /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:30
+  Rendered user_books/index.html.erb within layouts/application (Duration: 13.0ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | GC: 0.4ms)
+Completed 200 OK in 738ms (Views: 14.3ms | ActiveRecord: 1.1ms (3 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/user_books/new" for 172.17.0.1 at 2026-09-13 06:38:27 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/new.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."username" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:28:in 'Enumerable#map'
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."title" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:33:in 'Enumerable#map'
+  Rendered user_books/_form.html.erb (Duration: 15.8ms | GC: 0.0ms)
+  Rendered user_books/new.html.erb within layouts/application (Duration: 35.6ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 38.8ms | GC: 0.3ms)
+Completed 200 OK in 818ms (Views: 39.8ms | ActiveRecord: 0.7ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/user_books/1/edit" for 172.17.0.1 at 2026-09-13 06:38:29 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#edit as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mUserBook Load (0.5ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" WHERE "user_books"."id" = 1 LIMIT 1 /*action='edit',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:63:in 'UserBooksController#set_user_book'
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/edit.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."username" ASC /*action='edit',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:28:in 'Enumerable#map'
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."title" ASC /*action='edit',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:33:in 'Enumerable#map'
+  Rendered user_books/_form.html.erb (Duration: 8.6ms | GC: 0.0ms)
+  Rendered user_books/edit.html.erb within layouts/application (Duration: 12.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | GC: 0.0ms)
+Completed 200 OK in 818ms (Views: 17.8ms | ActiveRecord: 1.2ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/books" for 172.17.0.1 at 2026-09-13 06:38:32 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "books" LIMIT 1 /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:19
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:31
+  Rendered books/index.html.erb within layouts/application (Duration: 12.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | GC: 0.0ms)
+Completed 200 OK in 777ms (Views: 14.9ms | ActiveRecord: 1.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user_books" for 172.17.0.1 at 2026-09-13 06:38:34 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as HTML
+Started GET "/books/3" for 172.17.0.1 at 2026-09-13 06:38:35 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (0.4ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:28
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3 LIMIT 1 /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:30
+  Rendered user_books/index.html.erb within layouts/application (Duration: 11.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | GC: 0.0ms)
+Completed 200 OK in 442ms (Views: 13.4ms | ActiveRecord: 1.1ms (3 queries, 0 cached) | GC: 1.4ms)
+
+
+Processing by BooksController#show as HTML
+  Parameters: {"id" => "3"}
+Started GET "/books/3/confirm_delete" for 172.17.0.1 at 2026-09-13 06:38:36 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3 LIMIT 1 /*action='show',application='Csce431',controller='books'*/[0m
+  ↳ app/controllers/books_controller.rb:55:in 'BooksController#set_book'
+  Rendering layout layouts/application.html.erb
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (Duration: 2.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | GC: 0.0ms)
+Completed 200 OK in 514ms (Views: 7.1ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Processing by BooksController#confirm_delete as HTML
+  Parameters: {"id" => "3"}
+Started GET "/books/3" for 172.17.0.1 at 2026-09-13 06:38:36 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3 LIMIT 1 /*action='confirm_delete',application='Csce431',controller='books'*/[0m
+  ↳ app/controllers/books_controller.rb:55:in 'BooksController#set_book'
+  Rendering layout layouts/application.html.erb
+  Rendering books/confirm_delete.html.erb within layouts/application
+  Rendered books/confirm_delete.html.erb within layouts/application (Duration: 4.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | GC: 0.0ms)
+Completed 200 OK in 495ms (Views: 6.7ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Processing by BooksController#show as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3 LIMIT 1 /*action='show',application='Csce431',controller='books'*/[0m
+  ↳ app/controllers/books_controller.rb:55:in 'BooksController#set_book'
+  Rendering layout layouts/application.html.erb
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | GC: 0.0ms)
+Completed 200 OK in 752ms (Views: 3.9ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user_books" for 172.17.0.1 at 2026-09-13 06:39:00 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as HTML
+Started GET "/books" for 172.17.0.1 at 2026-09-13 06:39:01 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (0.4ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:28
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3 LIMIT 1 /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:30
+  Rendered user_books/index.html.erb within layouts/application (Duration: 12.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | GC: 0.0ms)
+Completed 200 OK in 565ms (Views: 14.5ms | ActiveRecord: 1.1ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Processing by BooksController#index as HTML
+Started GET "/users" for 172.17.0.1 at 2026-09-13 06:39:01 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "books" LIMIT 1 /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:19
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:31
+  Rendered books/index.html.erb within layouts/application (Duration: 7.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | GC: 0.0ms)
+Completed 200 OK in 736ms (Views: 9.4ms | ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 2.0ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='Csce431',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:20
+  Rendered users/index.html.erb within layouts/application (Duration: 5.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | GC: 0.0ms)
+Completed 200 OK in 831ms (Views: 18.9ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for 172.17.0.1 at 2026-09-13 06:39:51 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='Csce431',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:20
+  Rendered users/index.html.erb within layouts/application (Duration: 12.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 49.6ms | GC: 0.0ms)
+Completed 200 OK in 853ms (Views: 70.1ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/users/new" for 172.17.0.1 at 2026-09-13 06:39:55 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 8.3ms | GC: 0.0ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 25.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 29.0ms | GC: 0.0ms)
+Completed 200 OK in 790ms (Views: 31.3ms | ActiveRecord: 2.9ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users" for 172.17.0.1 at 2026-09-13 06:40:00 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"username" => "Nisha"}, "commit" => "Create User"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*action='create',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:27:in 'block in UsersController#create'
+  [1m[36mUser Create (8.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ('Nisha', '2026-09-13 06:40:01.114379', '2026-09-13 06:40:01.114379') RETURNING "id" /*action='create',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:27:in 'block in UsersController#create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*action='create',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:27:in 'block in UsersController#create'
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 756ms (ActiveRecord: 11.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/2" for 172.17.0.1 at 2026-09-13 06:40:01 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id" => "2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:63:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 4.4ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 31.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 33.5ms | GC: 0.0ms)
+Completed 200 OK in 841ms (Views: 35.0ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/2/edit" for 172.17.0.1 at 2026-09-13 06:40:05 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='edit',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:63:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered users/edit.html.erb within layouts/application (Duration: 8.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | GC: 0.0ms)
+Completed 200 OK in 819ms (Views: 12.3ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/users/2" for 172.17.0.1 at 2026-09-13 06:40:13 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#update as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"username" => "Shriya"}, "commit" => "Update User", "id" => "2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='update',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:63:in 'UsersController#set_user'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='update',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:40:in 'block in UsersController#update'
+  [1m[36mUser Update (3.5ms)[0m  [1m[33mUPDATE "users" SET "username" = 'Shriya', "updated_at" = '2026-09-13 06:40:14.630656' WHERE "users"."id" = 2 /*action='update',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:40:in 'block in UsersController#update'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT /*action='update',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:40:in 'block in UsersController#update'
+Redirected to http://localhost:3000/users/2
+Completed 303 See Other in 793ms (ActiveRecord: 5.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/2" for 172.17.0.1 at 2026-09-13 06:40:15 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id" => "2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='Csce431',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:63:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 3.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | GC: 0.0ms)
+Completed 200 OK in 748ms (Views: 8.2ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for 172.17.0.1 at 2026-09-13 06:40:17 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='Csce431',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:20
+  Rendered users/index.html.erb within layouts/application (Duration: 8.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | GC: 0.0ms)
+Completed 200 OK in 822ms (Views: 14.9ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/user_books" for 172.17.0.1 at 2026-09-13 06:40:20 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (0.3ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:28
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3 LIMIT 1 /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:30
+  Rendered user_books/index.html.erb within layouts/application (Duration: 74.7ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 78.5ms | GC: 0.4ms)
+Completed 200 OK in 986ms (Views: 81.1ms | ActiveRecord: 4.6ms (3 queries, 0 cached) | GC: 0.8ms)
+
+
+Started DELETE "/user_books/1?_method=delete" for 172.17.0.1 at 2026-09-13 06:40:26 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#destroy as TURBO_STREAM
+  Parameters: {"id" => "1"}
+  [1m[36mUserBook Load (0.9ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" WHERE "user_books"."id" = 1 LIMIT 1 /*action='destroy',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:63:in 'UserBooksController#set_user_book'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='destroy',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:52:in 'UserBooksController#destroy'
+  [1m[36mUserBook Destroy (4.2ms)[0m  [1m[31mDELETE FROM "user_books" WHERE "user_books"."id" = 1 /*action='destroy',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:52:in 'UserBooksController#destroy'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT /*action='destroy',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:52:in 'UserBooksController#destroy'
+Redirected to http://localhost:3000/user_books
+Completed 303 See Other in 828ms (ActiveRecord: 6.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user_books" for 172.17.0.1 at 2026-09-13 06:40:28 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (0.3ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  Rendered user_books/index.html.erb within layouts/application (Duration: 8.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | GC: 0.0ms)
+Completed 200 OK in 804ms (Views: 12.3ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 172.17.0.1 at 2026-09-14 22:48:07 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Csce431'*/[0m
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (31.6ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  Rendered user_books/index.html.erb within layouts/application (Duration: 85.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 217.5ms | GC: 0.0ms)
+Completed 200 OK in 1884ms (Views: 235.4ms | ActiveRecord: 35.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 172.17.0.1 at 2026-09-14 22:48:25 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (2.1ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  Rendered user_books/index.html.erb within layouts/application (Duration: 14.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | GC: 0.0ms)
+Completed 200 OK in 762ms (Views: 26.0ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user_books/new" for 172.17.0.1 at 2026-09-14 22:48:39 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/new.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."username" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:28:in 'Enumerable#map'
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."title" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:33:in 'Enumerable#map'
+  Rendered user_books/_form.html.erb (Duration: 170.4ms | GC: 0.0ms)
+  Rendered user_books/new.html.erb within layouts/application (Duration: 189.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 201.4ms | GC: 0.0ms)
+Completed 200 OK in 777ms (Views: 195.2ms | ActiveRecord: 29.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user_books/new" for 172.17.0.1 at 2026-09-14 22:51:26 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Started GET "/user_books" for 172.17.0.1 at 2026-09-14 22:51:26 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#new as HTML
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/new.html.erb within layouts/application
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (2.6ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  Rendered user_books/index.html.erb within layouts/application (Duration: 35.3ms | GC: 0.0ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."username" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:28:in 'Enumerable#map'
+  [1m[36mBook Load (17.2ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."title" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:33:in 'Enumerable#map'
+  Rendered user_books/_form.html.erb (Duration: 271.1ms | GC: 0.6ms)
+  Rendered user_books/new.html.erb within layouts/application (Duration: 330.5ms | GC: 1.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 334.5ms | GC: 1.0ms)
+Completed 200 OK in 2178ms (Views: 380.2ms | ActiveRecord: 2.5ms (1 query, 0 cached) | GC: 1.3ms)
+
+
+  Rendered layout layouts/application.html.erb (Duration: 383.8ms | GC: 1.0ms)
+Completed 200 OK in 2220ms (Views: 378.0ms | ActiveRecord: 38.0ms (2 queries, 0 cached) | GC: 1.3ms)
+
+
+Started GET "/user_books/new" for 172.17.0.1 at 2026-09-14 22:51:32 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/new.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."username" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:28:in 'Enumerable#map'
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."title" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:33:in 'Enumerable#map'
+  Rendered user_books/_form.html.erb (Duration: 18.5ms | GC: 0.0ms)
+  Rendered user_books/new.html.erb within layouts/application (Duration: 22.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.7ms | GC: 0.0ms)
+Completed 200 OK in 1058ms (Views: 26.4ms | ActiveRecord: 1.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user_books/new" for 172.17.0.1 at 2026-09-14 22:51:35 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/new.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."username" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:28:in 'Enumerable#map'
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."title" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:33:in 'Enumerable#map'
+  Rendered user_books/_form.html.erb (Duration: 50.1ms | GC: 0.0ms)
+  Rendered user_books/new.html.erb within layouts/application (Duration: 56.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 60.5ms | GC: 0.0ms)
+Completed 200 OK in 1164ms (Views: 66.5ms | ActiveRecord: 1.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user_books" for 172.17.0.1 at 2026-09-14 22:51:37 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (0.4ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  Rendered user_books/index.html.erb within layouts/application (Duration: 11.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.0ms | GC: 4.0ms)
+Completed 200 OK in 709ms (Views: 21.9ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 4.5ms)
+
+
+Started GET "/user_books/new" for 172.17.0.1 at 2026-09-14 22:51:39 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/new.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."username" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:28:in 'Enumerable#map'
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."title" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:33:in 'Enumerable#map'
+  Rendered user_books/_form.html.erb (Duration: 26.6ms | GC: 4.3ms)
+  Rendered user_books/new.html.erb within layouts/application (Duration: 29.4ms | GC: 4.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 33.2ms | GC: 5.4ms)
+Completed 200 OK in 637ms (Views: 33.6ms | ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 6.4ms)
+
+
+Started GET "/user_books/new" for 172.17.0.1 at 2026-09-14 22:51:41 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/new.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."username" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:28:in 'Enumerable#map'
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."title" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:33:in 'Enumerable#map'
+  Rendered user_books/_form.html.erb (Duration: 31.8ms | GC: 5.7ms)
+  Rendered user_books/new.html.erb within layouts/application (Duration: 35.0ms | GC: 5.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 39.1ms | GC: 6.5ms)
+Completed 200 OK in 969ms (Views: 40.4ms | ActiveRecord: 1.0ms (2 queries, 0 cached) | GC: 7.0ms)
+
+
+Started GET "/user_books/new" for 172.17.0.1 at 2026-09-14 22:52:24 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Csce431'*/[0m
+Processing by UserBooksController#new as HTML
+Started GET "/user_books/new" for 172.17.0.1 at 2026-09-14 22:52:26 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/new.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."username" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:28:in 'Enumerable#map'
+  [1m[36mBook Load (2.1ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."title" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:33:in 'Enumerable#map'
+  Rendered user_books/_form.html.erb (Duration: 204.7ms | GC: 0.0ms)
+  Rendered user_books/new.html.erb within layouts/application (Duration: 225.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 326.4ms | GC: 0.0ms)
+Completed 200 OK in 1385ms (Views: 375.1ms | ActiveRecord: 21.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user_books/new" for 172.17.0.1 at 2026-09-14 22:52:27 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/new.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."username" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:28:in 'Enumerable#map'
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."title" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:33:in 'Enumerable#map'
+  Rendered user_books/_form.html.erb (Duration: 40.6ms | GC: 0.0ms)
+  Rendered user_books/new.html.erb within layouts/application (Duration: 45.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 54.6ms | GC: 0.0ms)
+Completed 200 OK in 725ms (Views: 54.5ms | ActiveRecord: 1.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Processing by UserBooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/new.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."username" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:28:in 'Enumerable#map'
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."title" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:33:in 'Enumerable#map'
+  Rendered user_books/_form.html.erb (Duration: 27.2ms | GC: 0.0ms)
+  Rendered user_books/new.html.erb within layouts/application (Duration: 31.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 39.6ms | GC: 0.0ms)
+Completed 200 OK in 599ms (Views: 39.6ms | ActiveRecord: 1.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user_books/new" for 172.17.0.1 at 2026-09-14 22:53:02 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/new.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."username" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:18:in 'Enumerable#map'
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."title" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:23:in 'Enumerable#map'
+  Rendered user_books/_form.html.erb (Duration: 104.7ms | GC: 0.2ms)
+  Rendered user_books/new.html.erb within layouts/application (Duration: 131.6ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 163.8ms | GC: 0.4ms)
+Completed 200 OK in 805ms (Views: 174.3ms | ActiveRecord: 9.0ms (2 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/user_books" for 172.17.0.1 at 2026-09-14 22:53:26 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (1.4ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  Rendered user_books/index.html.erb within layouts/application (Duration: 18.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 23.0ms | GC: 0.0ms)
+Completed 200 OK in 673ms (Views: 23.9ms | ActiveRecord: 1.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/books" for 172.17.0.1 at 2026-09-14 22:53:30 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "books" LIMIT 1 /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:19
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:31
+  Rendered books/index.html.erb within layouts/application (Duration: 33.2ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 37.7ms | GC: 0.4ms)
+Completed 200 OK in 603ms (Views: 42.5ms | ActiveRecord: 1.2ms (2 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/users" for 172.17.0.1 at 2026-09-14 22:54:39 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='Csce431',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:20
+  Rendered users/index.html.erb within layouts/application (Duration: 16.8ms | GC: 0.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | GC: 0.6ms)
+Completed 200 OK in 652ms (Views: 30.0ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/user_books" for 172.17.0.1 at 2026-09-14 22:54:40 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (0.4ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  Rendered user_books/index.html.erb within layouts/application (Duration: 8.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | GC: 0.0ms)
+Completed 200 OK in 693ms (Views: 15.4ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mUserBook Count (50.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_books" /*application='Csce431'*/[0m
+  [1m[36mUserBook Load (3.3ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*application='Csce431'*/[0m
+Started GET "/books" for 172.17.0.1 at 2026-09-14 22:58:04 +0000
+Started GET "/user_books" for 172.17.0.1 at 2026-09-14 22:58:04 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Csce431'*/[0m
+  
+ActionController::RoutingError (No route matches [GET] "/user_books"):
+  
+Processing by BooksController#index as HTML
+Started GET "/user_books/new" for 172.17.0.1 at 2026-09-14 22:58:05 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "books" LIMIT 1 /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:19
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" /*action='index',application='Csce431',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:31
+  Rendered books/index.html.erb within layouts/application (Duration: 82.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 174.3ms | GC: 10.2ms)
+Completed 200 OK in 1211ms (Views: 178.7ms | ActiveRecord: 12.4ms (2 queries, 0 cached) | GC: 10.2ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/new.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."username" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:18:in 'Enumerable#map'
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."title" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:23:in 'Enumerable#map'
+  Rendered user_books/_form.html.erb (Duration: 80.3ms | GC: 0.3ms)
+  Rendered user_books/new.html.erb within layouts/application (Duration: 94.3ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 98.1ms | GC: 0.3ms)
+Completed 200 OK in 1064ms (Views: 105.8ms | ActiveRecord: 4.7ms (2 queries, 0 cached) | GC: 11.0ms)
+
+
+Started GET "/user_books/new" for 172.17.0.1 at 2026-09-14 22:58:07 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/new.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."username" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:18:in 'Enumerable#map'
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."title" ASC /*action='new',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/_form.html.erb:23:in 'Enumerable#map'
+  Rendered user_books/_form.html.erb (Duration: 18.3ms | GC: 0.0ms)
+  Rendered user_books/new.html.erb within layouts/application (Duration: 23.1ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 27.7ms | GC: 0.3ms)
+Completed 200 OK in 726ms (Views: 28.2ms | ActiveRecord: 0.9ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for 172.17.0.1 at 2026-09-14 22:58:13 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started POST "/user_books" for 172.17.0.1 at 2026-09-14 22:58:23 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user_book" => {"user_id" => "2", "book_id" => "3"}, "commit" => "Create User book"}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN /*action='create',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:27:in 'block in UserBooksController#create'
+  [1m[36mUser Load (5.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='create',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:27:in 'block in UserBooksController#create'
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3 LIMIT 1 /*action='create',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:27:in 'block in UserBooksController#create'
+  [1m[36mUserBook Create (2.4ms)[0m  [1m[32mINSERT INTO "user_books" ("user_id", "book_id", "created_at", "updated_at") VALUES (2, 3, '2026-09-14 22:58:24.284288', '2026-09-14 22:58:24.284288') RETURNING "id" /*action='create',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:27:in 'block in UserBooksController#create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT /*action='create',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:27:in 'block in UserBooksController#create'
+Redirected to http://127.0.0.1:3000/user_books/2
+Completed 302 Found in 819ms (ActiveRecord: 9.9ms (3 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/user_books/2" for 172.17.0.1 at 2026-09-14 22:58:25 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#show as TURBO_STREAM
+  Parameters: {"id" => "2"}
+  [1m[36mUserBook Load (0.4ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" WHERE "user_books"."id" = 2 LIMIT 1 /*action='show',application='Csce431',controller='user_books'*/[0m
+  ↳ app/controllers/user_books_controller.rb:63:in 'UserBooksController#set_user_book'
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/show.html.erb within layouts/application
+  Rendered user_books/_user_book.html.erb (Duration: 3.6ms | GC: 0.0ms)
+  Rendered user_books/show.html.erb within layouts/application (Duration: 28.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 30.8ms | GC: 0.0ms)
+Completed 200 OK in 787ms (Views: 34.1ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user_books" for 172.17.0.1 at 2026-09-14 22:58:31 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by UserBooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user_books/index.html.erb within layouts/application
+  [1m[36mUserBook Load (0.3ms)[0m  [1m[34mSELECT "user_books".* FROM "user_books" /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:26
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:28
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3 LIMIT 1 /*action='index',application='Csce431',controller='user_books'*/[0m
+  ↳ app/views/user_books/index.html.erb:30
+  Rendered user_books/index.html.erb within layouts/application (Duration: 21.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | GC: 0.0ms)
+Completed 200 OK in 794ms (Views: 25.8ms | ActiveRecord: 0.9ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
